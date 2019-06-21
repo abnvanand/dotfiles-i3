@@ -453,6 +453,6 @@ bindsym $mod+Ctrl+less move workspace to output left
 #
 
 # toggle display laptop <-> external monitor
-#bindsym $mod+F4 exec ~/.scripts/toggle_display.ipy
-bindsym $mod+F4 exec arandr
+bindsym $mod+F4 exec ~/.scripts/toggle_display.ipy
+bindsym $mod+Shift+F4 exec arandr
 
