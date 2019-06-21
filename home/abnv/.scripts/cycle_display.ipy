@@ -1,0 +1,20 @@
+#!/usr/bin/ipython
+
+# TODO: Cycle between 4 modes
+# 1. Computer Only
+# 2. Mirror
+# 3. Extend
+# 4. External Only
+
+outputs=!xrandr
+curr_output=''
+for output in outputs:
+  if output[0:2]!='  ':
+    curr_output=output.split(" ")[0]
+  elif '*' in output:
+    break #the curr_output is our current output
+
+if curr_output=='HDMI1':
+  !xrandr --output eDP1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off
+elif curr_output=='eDP1':
+  !xrandr --output eDP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
