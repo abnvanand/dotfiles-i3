@@ -10,7 +10,7 @@ import -window root /tmp/screenshot.png
 # slow: but the blur we want
 #convert  /tmp/screenshot.png -blur 0x100 /tmp/screenshotblur.png
 # fast: a hack for faster blurring with similar effect
-convert /tmp/screenshot.png -scale 10% -blur 0x10 -resize 1000% /tmp/screenshotblur.png
+convert /tmp/screenshot.png -scale 10% -blur 0x9 -resize 1000% /tmp/screenshotblur.png
 
 rm /tmp/screenshot.png
 
