@@ -56,9 +56,9 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+bindsym $mod+F2 exec google-chrome-stable
 bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
+#bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
@@ -185,8 +185,8 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws8; workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws8; workspace $ws10
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
@@ -194,6 +194,8 @@ bindsym $mod+Shift+0 move container to workspace $ws8; workspace $ws10
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5i
 assign [class="Rhythmbox"] $ws10
+# assign [class="Spotify"] $ws10 # Doesn't work due to spotify bug
+for_window [class="Spotify"] move to workspace $ws10
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -220,7 +222,7 @@ for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
+#for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 
 for_window [class="Pcmanfm"] floating enable
@@ -429,11 +431,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-
-#exec_always xrandr --output eDP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-#
-#
-
 # move focused window between monitors
 bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
@@ -442,17 +439,17 @@ bindsym $mod+Shift+less move container to output left
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
 
-#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 0 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
-
-#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -opacity "85" -bw 0 -bc "#2f343f" -bg "#2f343f" -fg "#f3f4f5" -hlbg "#2f343f" -hlfg "#9575cd"
 
 # replace dmenu by rofi
 #bindsym $mod+d exec rofi -show run -config /home/abnv/.config/rofi/roficonfig
 
 #exec --no-startup-id compton -f
-#
 
 # toggle display laptop <-> external monitor
 bindsym $mod+F4 exec ~/.scripts/toggle_display.ipy
 bindsym $mod+Shift+F4 exec arandr
+
+# autostart redshift
+exec --no-startup-id redshift-gtk
+exec --no-startup-id atltab
 
